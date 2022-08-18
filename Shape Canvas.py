@@ -44,4 +44,43 @@ canvas=Canvas(root, width=990, height=490, bg = "white", highlightbackground="Li
 canvas.pack()
 
 
+def circle(event):
+    oldx=dropdown2.get()
+    oldy=dropdown3.get()
+    newx=dropdown4.get()
+    newy=dropdown5.get()
+    keypress= "c"
+    draw(keypress,oldx,oldy,newx,newy)
+    
+def rectangle(event):
+    oldx=dropdown2.get()
+    oldy=dropdown3.get()
+    newx=dropdown4.get()
+    newy=dropdown5.get()
+    keypress= "r"
+    draw(keypress,oldx,oldy,newx,newy)
+    
+def line(event):
+    oldx=dropdown2.get()
+    oldy=dropdown3.get()
+    newx=dropdown4.get()
+    newy=dropdown5.get()
+    keypress= "l"
+    draw(keypress,oldx,oldy,newx,newy)
+    
+def draw(keypress,oldx,oldy,newx,newy):
+    fill_color=dropdown.get()
+    if (keypress=="c"):
+        draw_circle=canvas.create_oval(oldx,oldy,newx,newy,width=3,fill=fill_color)
+    if (keypress=="r"):
+       draw_rectangle=canvas.create_rectangle(oldx,oldy,newx,newy,width=3,fill=fill_color)
+    if (keypress=="l"):
+        draw_line=canvas.create_line(oldx,oldy,newx,newy,width=3,fill=fill_color)
+    
+   
+root.bind("<c>",circle)
+root.bind("<r>",rectangle)
+root.bind("<l>",line)
+
+
 root.mainloop()
